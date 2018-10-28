@@ -16,25 +16,25 @@ namespace Grademoepi
         [GroupDefinitions()]
         public static class GroupNames
         {
-            [Display(Name = "Contact", Order = 1)]
+            [Display(Name = "Contact", Order = 9000)]
             public const string Contact = "Contact";
 
-            [Display(Name = "Default", Order = 2)]
+            [Display(Name = "Default", Order = 9100)]
             public const string Default = "Default";
 
-            [Display(Name = "Metadata", Order = 3)]
+            [Display(Name = "Metadata", Order = 9200)]
             public const string MetaData = "Metadata";
 
-            [Display(Name = "News", Order = 4)]
+            [Display(Name = "News", Order = 9300)]
             public const string News = "News";
 
-            [Display(Name = "Products", Order = 5)]
+            [Display(Name = "Products", Order = 9400)]
             public const string Products = "Products";
 
-            [Display(Name = "SiteSettings", Order = 6)]
+            [Display(Name = "SiteSettings", Order = 9500)]
             public const string SiteSettings = "SiteSettings";
 
-            [Display(Name = "Specialized", Order = 7)]
+            [Display(Name = "Specialized", Order = 9600)]
             public const string Specialized = "Specialized";
         }
 

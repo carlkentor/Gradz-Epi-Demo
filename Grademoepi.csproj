@@ -376,7 +376,10 @@
     <Content Include="Static\css\bootstrap.css" />
     <Content Include="Static\css\editmode.css" />
     <Content Include="Static\css\editor.css" />
+    <Content Include="Static\css\gradz-animations.css" />
+    <Content Include="Static\css\landingpage.css" />
     <Content Include="Static\css\media.css" />
+    <Content Include="Static\css\navbar.css" />
     <Content Include="Static\css\style.css" />
     <Content Include="Static\gfx\carouselbackground.png" />
     <Content Include="Static\gfx\contact.jpg" />

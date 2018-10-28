@@ -1,4 +1,4 @@
-@using System.Web.Optimization
+﻿@using System.Web.Optimization
 @using EPiServer.Framework.Web.Mvc.Html
 @using Grademoepi.Business
 @model IPageViewModel<SitePageData>
@@ -33,17 +33,19 @@
 
         @Html.RenderEPiServerQuickNavigator()
         @Html.FullRefreshPropertiesMetaData()
-        <div class="container">
-            @if(!Model.Layout.HideHeader)
+        <div class="container @Model.CurrentPage.PageTypeName.ToLower()">
+            @if (!Model.Layout.HideHeader)
             {
                 Html.RenderPartial("Header", Model);
             }
             @RenderBody()
-            @if(!Model.Layout.HideFooter)
+            @if (!Model.Layout.HideFooter)
             {
                 Html.RenderPartial("Footer", Model);
             }
         </div>
         @Html.RequiredClientResources("Footer")
+        @Styles.Render("~/bundles/" + Model.CurrentPage.PageTypeName)
+
     </body>
 </html>
