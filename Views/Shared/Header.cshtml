@@ -19,33 +19,33 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li>
-                        <div>
-
-                            @if (Model.Layout.LoggedIn)
-                            {
-                                @Html.ActionLink(Html.Translate("/footer/logout"), "Logout", new { language = @Model.CurrentPage.Language.Name })
-                            }
-                            else
-                            {
-                                if (!Model.Layout.IsInReadonlyMode)
+                        <div class="navbar-search">
+                            @{
+                                using (Html.BeginForm(null, null, PageEditing.PageIsInEditMode ? FormMethod.Post : FormMethod.Get, new { @action = Model.Layout.SearchActionUrl }))
                                 {
-                                    <a href="@Model.Layout.LoginUrl" title="@Html.Translate("/footer/login")">@Html.Translate("/footer/login")</a>
+                                    <input type="search" class="search-query" name="q" id="SearchKeywords" placeholder="Sök" />
                                 }
                             }
                         </div>
                     </li>
                     <li>
-                        <div class="navbar-search">
-                            @{
-                                using (Html.BeginForm(null, null, PageEditing.PageIsInEditMode ? FormMethod.Post : FormMethod.Get, new { @action = Model.Layout.SearchActionUrl }))
-                                {
-                                    <input type="search" class="search-query" name="q" id="SearchKeywords" placeholder="@Html.Translate("/mainnavigation/search")" />
-                                }
+                        @if (Model.Layout.LoggedIn)
+                        {
+
+                            <a class="nav-link" href="@Model.Layout.LogOutUrl">
+                                <span class="oi oi-account-logout" title="icon name" aria-hidden="true"></span>
+                            </a>
+                        }
+                        else
+                        {
+                            if (!Model.Layout.IsInReadonlyMode)
+                            {
+                                <a class="nav-link" href="@Model.Layout.LoginUrl">
+                                    <span class="oi oi-account-login" title="icon name" aria-hidden="true"></span>
+                                </a>
                             }
-                        </div>
-
+                        }
                     </li>
-
                 </ul>
 
             </div>

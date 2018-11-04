@@ -31,6 +31,8 @@ namespace Grademoepi.Business.Initialization
             bundles.Add(new StyleBundle("~/bundles/css")
                 .Include("~/Static/css/bootstrap.css", new CssRewriteUrlTransform())
                          .Include("~/Static/css/site.css", new CssRewriteUrlTransform())
+                            .Include("~/Static/open-iconic-master/font/css/open-iconic.css")
+                .Include("~/Static/open-iconic-master/font/css/open-iconic-bootstrap.css")
                 .Include("~/Static/css/editmode.css")
                 .Include("~/Static/css/gradz-animations.css"));
         }
