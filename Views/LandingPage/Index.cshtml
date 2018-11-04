@@ -1,8 +1,0 @@
-@using Grademoepi
-@model PageViewModel<LandingPage>
-<div class="teaser-image" style="display:flex;">
-    @Html.PropertyFor(x => x.CurrentPage.PageImage)
-</div>
-<div class="campaign-wrapper">
-    @Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row equal-height", tag = Global.ContentAreaTags.FullWidth })
-</div>

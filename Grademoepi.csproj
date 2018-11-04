@@ -328,7 +328,6 @@
     <Compile Include="Models\Pages\ContainerPage.cs" />
     <Compile Include="Models\Pages\IHasRelatedContent.cs" />
     <Compile Include="Models\Pages\ISearchPage.cs" />
-    <Compile Include="Models\Pages\LandingPage.cs" />
     <Compile Include="Models\Pages\SearchPage.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
@@ -379,7 +378,6 @@
     <Content Include="Static\css\editmode.css" />
     <Content Include="Static\css\editor.css" />
     <Content Include="Static\css\gradz-animations.css" />
-    <Content Include="Static\css\landingpage.css" />
     <Content Include="Static\gfx\carouselbackground.png" />
     <Content Include="Static\gfx\contact.jpg" />
     <Content Include="Static\gfx\exampelspan4.png" />
@@ -478,7 +476,6 @@
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Preview\Index.cshtml" />
     <Content Include="Views\PageListBlock\Index.cshtml" />
-    <Content Include="Views\LandingPage\Index.cshtml" />
     <Content Include="Views\ImageFile\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

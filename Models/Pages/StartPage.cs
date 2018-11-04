@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.SpecializedProperties;
 using Grademoepi.Models.Blocks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Grademoepi.Models.Pages
 {
@@ -16,8 +16,8 @@ namespace Grademoepi.Models.Pages
     [SiteImageUrl]
     [AvailableContentTypes(
         Availability.Specific,
-        Include = new[] { typeof(ContainerPage), typeof(StandardPage), typeof(ISearchPage), typeof(LandingPage), typeof(ContentFolder) }, // Pages we can create under the start page...
-        ExcludeOn = new[] { typeof(ContainerPage), typeof(StandardPage), typeof(ISearchPage), typeof(LandingPage) })] // ...and underneath those we can't create additional start pages
+        Include = new[] { typeof(ContainerPage), typeof(StandardPage), typeof(ISearchPage), typeof(ContentFolder) }, // Pages we can create under the start page...
+        ExcludeOn = new[] { typeof(ContainerPage), typeof(StandardPage), typeof(ISearchPage) })] // ...and underneath those we can't create additional start pages
     public class StartPage : SitePageData
     {
         [Display(
