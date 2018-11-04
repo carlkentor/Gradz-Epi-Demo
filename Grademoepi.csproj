@@ -418,7 +418,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\GeoLiteCity.dat" />
-    <Content Include="App_Data\DefaultSiteContent.episerverdata" />
     <Content Include="configs\localcon.config">
       <SubType>Designer</SubType>
     </Content>
