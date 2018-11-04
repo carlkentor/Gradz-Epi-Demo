@@ -52,7 +52,7 @@ namespace Grademoepi.Business.Initialization
                         {
                             if (current.PropertyType == typeof(XhtmlString))
                             {
-                                propvalue = new XhtmlString(LoremNET.Lorem.Sentence(new Random().Next(10, 30)));
+                                propvalue = new XhtmlString(LoremNET.Lorem.Sentence(new Random().Next(200, 500)));
                                 break;
                             }
                             continue;

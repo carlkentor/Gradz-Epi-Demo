@@ -469,7 +469,6 @@
     <Content Include="Views\Shared\DisplayTemplates\StringsCollection.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Image.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\ContactPage.cshtml" />
     <Content Include="Views\Shared\Blocks\TeaserBlockWide.cshtml" />
     <Content Include="Views\Shared\Blocks\TeaserBlock.cshtml" />
     <Content Include="Views\Shared\Blocks\SiteLogotypeBlock.cshtml" />
@@ -478,14 +477,10 @@
     <Content Include="Views\Shared\Blocks\EditorialBlock.cshtml" />
     <Content Include="Views\Shared\Blocks\ButtonBlock.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
-    <Content Include="Views\ProductPage\Index.cshtml" />
     <Content Include="Views\Preview\Index.cshtml" />
     <Content Include="Views\PageListBlock\Index.cshtml" />
-    <Content Include="Views\NewsPage\Index.cshtml" />
     <Content Include="Views\LandingPage\Index.cshtml" />
     <Content Include="Views\ImageFile\Index.cshtml" />
-    <Content Include="Views\ContactBlock\Index.cshtml" />
-    <Content Include="Views\ArticlePage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
