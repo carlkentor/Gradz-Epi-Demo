@@ -1,6 +1,6 @@
 @model IPageViewModel<SitePageData>
         <div class="row" style="position:fixed; bottom:0;">
-            <div class="span12">
+            <div class="col-md-12">
                 @Html.PropertyFor(x => x.Layout.CustomerZonePages)
                         @if(Model.Layout.LoggedIn)
                         {

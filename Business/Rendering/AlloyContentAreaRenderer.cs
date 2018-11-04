@@ -34,11 +34,11 @@ namespace Grademoepi.Business.Rendering
             }
             switch (tagName.ToLower())
             {
-                case "span12":
+                case "col-md-12":
                     return "full";
-                case "span8":
+                case "col-md-8":
                     return "wide";
-                case "span6":
+                case "col-md-6":
                     return "half";
                 default:
                     return string.Empty;

@@ -6,7 +6,7 @@
 <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
 <p class="introduction" @Html.EditAttributes(x => x.CurrentPage.MetaDescription)>@Model.CurrentPage.MetaDescription</p>
 <div class="row">
-    <div class="span8 clearfix" @Html.EditAttributes(x => x.CurrentPage.MainBody)>
+    <div class="col-md-8 clearfix" @Html.EditAttributes(x => x.CurrentPage.MainBody)>
         @Html.DisplayFor(m => m.CurrentPage.MainBody)
     </div>
 </div>

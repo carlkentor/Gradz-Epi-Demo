@@ -4,12 +4,12 @@
 @model IPageViewModel<SitePageData>
 <div class="row">
     <div id="header">
-        <div class="span2">
+        <div class="col-md-2">
             <a href="@Model.Layout.LogotypeLinkUrl" title="@Model.Layout.Logotype.Title">
                 @Html.PropertyFor(x => x.Layout.Logotype)
             </a>
         </div>
-        <div class="span10">
+        <div class="col-md-10">
 
             <div class="alloyMenu">
                 <div class="navbar">

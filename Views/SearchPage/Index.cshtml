@@ -7,7 +7,7 @@
 }
 
 <div class="row">
-    <div class="span8,search-form">
+    <div class="col-md-8,search-form">
         @*We use GET to submit the form to enable bookmarking etc of search results.  However, as GET will remove other
         query string values not in the form we can't use that in edit mode.*@
 
@@ -24,7 +24,7 @@
 @if(Model.Hits != null)
 {
     <div class="row">
-        <div class="span8 grayHead">
+        <div class="col-md-8 grayHead">
             <h2>@Html.Translate("/searchpagetemplate/result")</h2>
             <p>
                 @Html.Translate("/searchpagetemplate/searchfor") <i>@Model.SearchedQuery</i>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="row">
-        <div class="span8 SearchResults">
+        <div class="col-md-8 SearchResults">
             @foreach (var hit in Model.Hits)
             {
                 <div class="listResult">
