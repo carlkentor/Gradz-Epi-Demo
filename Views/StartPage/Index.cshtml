@@ -1,4 +1,7 @@
 @using Grademoepi
 @model PageViewModel<Grademoepi.Models.Pages.StartPage>
-
-@Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row equal-height", tag = Global.ContentAreaTags.FullWidth })
+<div class="row">
+    <div class="col-md-12">
+        @Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row equal-height", tag = Global.ContentAreaTags.FullWidth })
+    </div>
+</div>

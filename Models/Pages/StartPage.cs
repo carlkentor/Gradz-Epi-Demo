@@ -1,7 +1,6 @@
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using EPiServer.SpecializedProperties;
 using Grademoepi.Models.Blocks;
 using System.ComponentModel.DataAnnotations;
 
@@ -26,29 +25,8 @@ namespace Grademoepi.Models.Pages
         [CultureSpecific]
         public virtual ContentArea MainContentArea { get; set; }
 
-        [Display(GroupName = Global.GroupNames.SiteSettings, Order = 300)]
-        public virtual LinkItemCollection ProductPageLinks { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings, Order = 350)]
-        public virtual LinkItemCollection CompanyInformationPageLinks { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings, Order = 400)]
-        public virtual LinkItemCollection NewsPageLinks { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings, Order = 450)]
-        public virtual LinkItemCollection CustomerZonePageLinks { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings)]
-        public virtual PageReference GlobalNewsPageLink { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings)]
-        public virtual PageReference ContactsPageLink { get; set; }
-
         [Display(GroupName = Global.GroupNames.SiteSettings)]
         public virtual PageReference SearchPageLink { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings)]
-        public virtual SiteLogotypeBlock SiteLogotype { get; set; }
 
     }
 }
