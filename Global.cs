@@ -36,6 +36,9 @@ namespace Grademoepi
 
             [Display(Name = "Specialized", Order = 9600)]
             public const string Specialized = "Specialized";
+
+            [Display(Name = "Feeds", Order = 9700)]
+            public const string Feeds = "Feeds";
         }
 
         /// <summary>

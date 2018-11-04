@@ -31,5 +31,13 @@ namespace Grademoepi.Models.Pages
         [AllowedTypes(new[] { typeof(SitePageData) })]
         [Display(Name = "Ingångar", GroupName = SystemTabNames.Content, Order = 1)]
         public virtual IEnumerable<ContentReference> PortalLinks { get; set; }
+
+
+        [Display(Name = "API", Order = 100, GroupName = Global.GroupNames.Feeds)]
+        public virtual IList<string> NewsFeeds { get; set; }
+
+        [AllowedTypes(typeof(ContainerPage))]
+        [Display(Name = "Nyehetssida", Order = 200, GroupName = Global.GroupNames.Feeds)]
+        public virtual ContentReference NewsRoot { get; set; }
     }
 }

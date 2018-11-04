@@ -1,0 +1,28 @@
+﻿@model Grademoepi.Models.Feeds.FeedItem
+<div class="row page-partial feed-item">
+    @{
+        var imageUrl = Model.UrlToImage ?? "https://www.technobuffalo.com/wp-content/uploads/2016/10/google-pixel-sample-photos-edited-054-470x310@2x.jpg";
+    }
+    @using (Html.BeginConditionalLink(true, new HtmlString(Model.Url), Model.Title))
+    {
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <img src="@imageUrl" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    @foreach (var cat in Model.EpiCategories)
+                    {
+                        <span class="cat">@cat</span>
+                    }
+                    <br />
+                    <h3>@Model.Title</h3>
+                    <p>@Model.Content</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
