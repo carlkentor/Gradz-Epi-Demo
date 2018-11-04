@@ -2,10 +2,7 @@
 @model IPageViewModel<SitePageData>
 @{ Layout = "~/Views/Shared/Layouts/_Root.cshtml"; }
 
-@{Html.RenderPartial("Breadcrumbs");}
-
 <div class="row">
-
     <div class="col-md-8">
         @RenderBody()
     </div>
