@@ -78,11 +78,8 @@
             };
 
             $.connection.hub.start().done(function () {
-                console.log("done");
                 // Call the Send method on the hub.
-                feedhub.server.send("newfeed", "hello");
-                // Clear text box and reset focus for next comment.
-                $('#message').val('').focus();
+                feedhub.server.send("Wizard", "Im a signal");
             });
         });
     </script>
