@@ -26,11 +26,6 @@ namespace Grademoepi.Business.Initialization
                 config.Default()
                     .ContentCss("/static/css/editor.css");
 
-                // This will clone the default settings object and extend it by
-                // limiting the block formats for the MainBody property of an ArticlePage.
-                config.For<ArticlePage>(t => t.MainBody)
-                    .BlockFormats("Paragraph=p;Header 1=h1;Header 2=h2;Header 3=h3");
-
                 // Passing a second argument to For<> will clone the given settings object
                 // instead of the default one and extend it with some basic toolbar commands.
                 config.For<EditorialBlock>(t => t.MainBody, config.Empty())

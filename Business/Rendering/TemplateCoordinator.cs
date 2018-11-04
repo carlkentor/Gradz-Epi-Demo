@@ -69,14 +69,6 @@ namespace Grademoepi.Business.Rendering
                 Path = PagePartialPath("PageWide.cshtml")
             });
 
-            viewTemplateModelRegistrator.Add(typeof(ContactPage), new TemplateModel
-            {
-                Name = "ContactPagePartialWide",
-                Tags = new[] { Global.ContentAreaTags.TwoThirdsWidth, Global.ContentAreaTags.FullWidth },
-                AvailableWithoutTag = false,
-                Path = PagePartialPath("ContactPageWide.cshtml")
-            });
-
             viewTemplateModelRegistrator.Add(typeof(IContentData), new TemplateModel
             {
                 Name = "NoRendererMessage",
