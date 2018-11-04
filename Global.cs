@@ -48,6 +48,7 @@ namespace Grademoepi
             public const string HalfWidth = "col-md-6";
             public const string OneThirdWidth = "col-md-4";
             public const string NoRenderer = "norenderer";
+            public const string PortalReference = "PortalReference";
         }
 
         /// <summary>

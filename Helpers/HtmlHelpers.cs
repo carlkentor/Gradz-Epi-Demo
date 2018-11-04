@@ -1,3 +1,9 @@
+using EPiServer;
+using EPiServer.Core;
+using EPiServer.ServiceLocation;
+using EPiServer.Web.Mvc.Html;
+using EPiServer.Web.Routing;
+using Grademoepi.Business;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,12 +12,6 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.WebPages;
-using EPiServer.Core;
-using EPiServer.ServiceLocation;
-using Grademoepi.Business;
-using EPiServer.Web.Mvc.Html;
-using EPiServer.Web.Routing;
-using EPiServer;
 
 namespace Grademoepi.Helpers
 {
@@ -55,7 +55,7 @@ namespace Grademoepi.Helpers
                 .Select(x => CreateMenuItem(x, currentContentLink, pagePath, contentLoader, filter))
                 .ToList();
 
-            if(includeRoot)
+            if (includeRoot)
             {
                 menuItems.Insert(0, CreateMenuItem(contentLoader.Get<PageData>(rootLink), currentContentLink, pagePath, contentLoader, filter));
             }
@@ -73,12 +73,12 @@ namespace Grademoepi.Helpers
         private static MenuItem CreateMenuItem(PageData page, ContentReference currentContentLink, List<ContentReference> pagePath, IContentLoader contentLoader, Func<IEnumerable<PageData>, IEnumerable<PageData>> filter)
         {
             var menuItem = new MenuItem(page)
-                {
-                    Selected = page.ContentLink.CompareToIgnoreWorkID(currentContentLink) ||
+            {
+                Selected = page.ContentLink.CompareToIgnoreWorkID(currentContentLink) ||
                                 pagePath.Contains(page.ContentLink),
-                    HasChildren =
+                HasChildren =
                         new Lazy<bool>(() => filter(contentLoader.GetChildren<PageData>(page.ContentLink)).Any())
-                };
+            };
             return menuItem;
         }
 
@@ -105,12 +105,12 @@ namespace Grademoepi.Helpers
         /// </summary>
         public static ConditionalLink BeginConditionalLink(this HtmlHelper helper, bool shouldWriteLink, IHtmlString url, string title = null, string cssClass = null)
         {
-            if(shouldWriteLink)
+            if (shouldWriteLink)
             {
                 var linkTag = new TagBuilder("a");
                 linkTag.Attributes.Add("href", url.ToHtmlString());
 
-                if(!string.IsNullOrWhiteSpace(title))
+                if (!string.IsNullOrWhiteSpace(title))
                 {
                     linkTag.Attributes.Add("title", helper.Encode(title));
                 }
@@ -138,7 +138,7 @@ namespace Grademoepi.Helpers
         {
             IHtmlString url = MvcHtmlString.Empty;
 
-            if(shouldWriteLink)
+            if (shouldWriteLink)
             {
                 url = urlGetter();
             }
@@ -178,6 +178,18 @@ namespace Grademoepi.Helpers
                 {
                     _viewContext.Writer.Write("</a>");
                 }
+            }
+        }
+
+        public static void RenderContent(this HtmlHelper html, ContentReference contentLink)
+        {
+            var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+
+            IContentData contentData;
+
+            if (contentLoader.TryGet(contentLink, out contentData))
+            {
+                html.RenderContentData(contentData, false);
             }
         }
     }

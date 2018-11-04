@@ -1,11 +1,11 @@
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.ServiceLocation;
+using EPiServer.Web;
+using EPiServer.Web.Mvc;
 using Grademoepi.Controllers;
 using Grademoepi.Models.Blocks;
 using Grademoepi.Models.Pages;
-using EPiServer.Web;
-using EPiServer.Web.Mvc;
 
 namespace Grademoepi.Business.Rendering
 {

@@ -10,14 +10,14 @@ namespace Grademoepi.Models.Pages
     /// Used for the site's start page and also acts as a container for site settings
     /// </summary>
     [ContentType(
-        GUID = "19671657-B684-4D95-A61F-8DD4FE60D559",
+        GUID = "13671657-B684-4D95-A61F-8DD4FE60D559",
         GroupName = Global.GroupNames.Specialized)]
     [SiteImageUrl]
     [AvailableContentTypes(
         Availability.Specific,
         Include = new[] { typeof(ContainerPage), typeof(StandardPage), typeof(ISearchPage), typeof(ContentFolder) }, // Pages we can create under the start page...
         ExcludeOn = new[] { typeof(ContainerPage), typeof(StandardPage), typeof(ISearchPage) })] // ...and underneath those we can't create additional start pages
-    public class StartPage : SitePageData
+    public class LandingPage : SitePageData
     {
         [Display(
             GroupName = SystemTabNames.Content,

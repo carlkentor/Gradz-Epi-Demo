@@ -5,7 +5,7 @@
 
 @foreach(var page in Model.Pages)
 {
-    <div class="listResult @string.Join(" ", page.GetThemeCssClassNames())">
+    <div class="news-item @string.Join(" ", page.GetThemeCssClassNames())">
         <h3>
             @Html.PageLink(page)
         </h3>

@@ -1,0 +1,22 @@
+﻿
+@using EPiServer.Core
+@model IEnumerable<ContentReference>
+@{
+    var index = 0;
+}
+@foreach (var contentref in Model)
+{
+    if (!ContentReference.IsNullOrEmpty(contentref))
+    {
+        if (index == 3)
+        {
+            @Html.Raw("<div class='row'>")
+        }
+        Html.RenderContent(contentref);
+        if (index == 3)
+        {
+            @Html.Raw("</div>")
+        }
+        index++;
+    }
+}

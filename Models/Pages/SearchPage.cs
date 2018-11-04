@@ -1,8 +1,8 @@
-using System.ComponentModel.DataAnnotations;
-using Grademoepi.Models.Blocks;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using Grademoepi.Models.Blocks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Grademoepi.Models.Pages
 {
@@ -21,5 +21,12 @@ namespace Grademoepi.Models.Pages
         [CultureSpecific]
         [AllowedTypes(new[] { typeof(IContentData) }, new[] { typeof(JumbotronBlock) })]
         public virtual ContentArea RelatedContentArea { get; set; }
+
+
+        public override void SetDefaultValues(ContentType contentType)
+        {
+            base.SetDefaultValues(contentType);
+            VisibleInMenu = false;
+        }
     }
 }

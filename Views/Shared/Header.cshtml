@@ -11,21 +11,43 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mr-auto">
                     @Html.MenuList(SiteDefinition.Current.StartPage,
-                                                    @<li class="@(item.Selected ? "active" : null)">
-                                                        @Html.PageLink(item.Page, null, new { @class = "nav-link " + string.Join(" ", item.Page.GetThemeCssClassNames()) })
-                                                    </li>)
+                                                                @<li class="@(item.Selected ? "active" : null)">
+                                                                    @Html.PageLink(item.Page, null, new { @class = "nav-link " + string.Join(" ", item.Page.GetThemeCssClassNames()) })
+                                                                </li>)
                 </ul>
-                <div class="navbar-search pull-right">
-                    @{
-                        using (Html.BeginForm(null, null, PageEditing.PageIsInEditMode ? FormMethod.Post : FormMethod.Get, new { @action = Model.Layout.SearchActionUrl }))
-                        {
-                            <input type="text" class="search-query" name="q" id="SearchKeywords" placeholder="@Html.Translate("/mainnavigation/search")" />
-                            <input type="submit" class="searchButton" id="SearchButton" value="" />
-                        }
-                    }
-                </div>
+                <ul class="navbar-nav">
+                    <li>
+                        <div>
+
+                            @if (Model.Layout.LoggedIn)
+                            {
+                                @Html.ActionLink(Html.Translate("/footer/logout"), "Logout", new { language = @Model.CurrentPage.Language.Name })
+                            }
+                            else
+                            {
+                                if (!Model.Layout.IsInReadonlyMode)
+                                {
+                                    <a href="@Model.Layout.LoginUrl" title="@Html.Translate("/footer/login")">@Html.Translate("/footer/login")</a>
+                                }
+                            }
+                        </div>
+                    </li>
+                    <li>
+                        <div class="navbar-search">
+                            @{
+                                using (Html.BeginForm(null, null, PageEditing.PageIsInEditMode ? FormMethod.Post : FormMethod.Get, new { @action = Model.Layout.SearchActionUrl }))
+                                {
+                                    <input type="search" class="search-query" name="q" id="SearchKeywords" placeholder="@Html.Translate("/mainnavigation/search")" />
+                                }
+                            }
+                        </div>
+
+                    </li>
+
+                </ul>
+
             </div>
         </nav>
     </div>

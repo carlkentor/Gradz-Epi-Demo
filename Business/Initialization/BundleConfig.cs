@@ -26,11 +26,11 @@ namespace Grademoepi.Business.Initialization
         {
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                         "~/Static/js/jquery.js", //jquery.js can be removed and linked from CDN instead, we use a local one for demo purposes without internet connectionzz
-                        "~/Static/js/bootstrap.js"));
+                        "~/Static/js/bootstrap.js", "~/Static/js/site.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css")
                 .Include("~/Static/css/bootstrap.css", new CssRewriteUrlTransform())
-                .Include("~/Static/css/style.css", new CssRewriteUrlTransform())
+                         .Include("~/Static/css/site.css", new CssRewriteUrlTransform())
                 .Include("~/Static/css/editmode.css")
                 .Include("~/Static/css/gradz-animations.css"));
         }

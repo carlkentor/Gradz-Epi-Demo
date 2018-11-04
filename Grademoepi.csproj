@@ -331,6 +331,7 @@
     <Compile Include="Models\Pages\SearchPage.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
+    <Compile Include="Models\Pages\LandingPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Models\Properties\PropertyStringList.cs" />
     <Compile Include="Models\Register\RegisterViewModel.cs" />
@@ -378,6 +379,7 @@
     <Content Include="Static\css\editmode.css" />
     <Content Include="Static\css\editor.css" />
     <Content Include="Static\css\gradz-animations.css" />
+    <Content Include="Static\css\site.css" />
     <Content Include="Static\gfx\carouselbackground.png" />
     <Content Include="Static\gfx\contact.jpg" />
     <Content Include="Static\gfx\exampelspan4.png" />
@@ -406,6 +408,7 @@
     <Content Include="Static\img\glyphicons-halflings.png" />
     <Content Include="Static\js\bootstrap.js" />
     <Content Include="Static\js\jquery.js" />
+    <Content Include="Static\js\site.js" />
     <Content Include="Static\jwplayer\jwplayer.js" />
     <Content Include="Static\jwplayer\player.swf" />
     <Content Include="Static\jwplayer\preview.jpg" />
@@ -457,7 +460,6 @@
     <Content Include="Views\Shared\PagePartials\PageWide.cshtml" />
     <Content Include="Views\Shared\PagePartials\Page.cshtml" />
     <Content Include="Views\Shared\PagePartials\ContactPageWide.cshtml" />
-    <Content Include="Views\Shared\PagePartials\ContactPage.cshtml" />
     <Content Include="Views\Shared\Layouts\_TwoPlusOne.cshtml" />
     <Content Include="Views\Shared\Layouts\_Root.cshtml" />
     <Content Include="Views\Shared\Layouts\_LeftNavigation.cshtml" />
@@ -477,6 +479,8 @@
     <Content Include="Views\Preview\Index.cshtml" />
     <Content Include="Views\PageListBlock\Index.cshtml" />
     <Content Include="Views\ImageFile\Index.cshtml" />
+    <Content Include="Views\Shared\PagePartials\Portal.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\PortalReference.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

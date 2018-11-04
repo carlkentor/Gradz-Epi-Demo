@@ -1,8 +1,8 @@
-using System.Web.Mvc;
-using Grademoepi.Models.Media;
-using Grademoepi.Models.ViewModels;
 using EPiServer.Web.Mvc;
 using EPiServer.Web.Routing;
+using Grademoepi.Models.Media;
+using Grademoepi.Models.ViewModels;
+using System.Web.Mvc;
 
 namespace Grademoepi.Controllers
 {

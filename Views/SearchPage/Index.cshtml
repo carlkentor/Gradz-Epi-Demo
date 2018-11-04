@@ -1,16 +1,12 @@
 @using EPiServer.Editor
 @using EPiServer.Security
 @model SearchContentModel
-
 @{
     Layout = "~/Views/Shared/Layouts/_TwoPlusOne.cshtml";
 }
 
 <div class="row">
     <div class="col-md-8,search-form">
-        @*We use GET to submit the form to enable bookmarking etc of search results.  However, as GET will remove other
-        query string values not in the form we can't use that in edit mode.*@
-
         @{
             using (Html.BeginForm(null, null, PageEditing.PageIsInEditMode ? FormMethod.Post : FormMethod.Get, new { @action = Model.Layout.SearchActionUrl }))
             {
@@ -21,7 +17,7 @@
     </div>
 </div>
 
-@if(Model.Hits != null)
+@if (Model.Hits != null)
 {
     <div class="row">
         <div class="col-md-8 grayHead">
@@ -29,7 +25,7 @@
             <p>
                 @Html.Translate("/searchpagetemplate/searchfor") <i>@Model.SearchedQuery</i>
                 @Html.Translate("/searchpagetemplate/resultedin")
-                @if(Model.NumberOfHits > 0)
+                @if (Model.NumberOfHits > 0)
                 {
                     @Model.NumberOfHits
                 }
@@ -46,7 +42,7 @@
         <div class="col-md-8 SearchResults">
             @foreach (var hit in Model.Hits)
             {
-                <div class="listResult">
+                <div class="news-item">
                     <h3><a href="@hit.Url">@hit.Title</a></h3>
                     <p>@hit.Excerpt</p>
                     <hr />
@@ -57,7 +53,7 @@
 
 }
 
-@if(Model.SearchServiceDisabled && PrincipalInfo.HasEditAccess)
+@if (Model.SearchServiceDisabled && PrincipalInfo.HasEditAccess)
 {
-    @Html.Partial("TemplateHint", Html.Translate("/searchpagetemplate/disabled" ))
+    @Html.Partial("TemplateHint", Html.Translate("/searchpagetemplate/disabled"))
 }
