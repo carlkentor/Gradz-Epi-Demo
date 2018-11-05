@@ -1,7 +1,7 @@
 ﻿@model Grademoepi.Models.Feeds.FeedItem
 <div class="row page-partial feed-item">
     @{
-        var imageUrl = Model.UrlToImage ?? "https://www.technobuffalo.com/wp-content/uploads/2016/10/google-pixel-sample-photos-edited-054-470x310@2x.jpg";
+        var imageUrl = "https://www.technobuffalo.com/wp-content/uploads/2016/10/google-pixel-sample-photos-edited-054-470x310@2x.jpg";
     }
     @using (Html.BeginConditionalLink(true, new HtmlString(Model.Url), Model.Title))
     {

@@ -32,7 +32,6 @@ namespace Grademoepi.Models.Pages
         [Display(Name = "Ingångar", GroupName = SystemTabNames.Content, Order = 1)]
         public virtual IEnumerable<ContentReference> PortalLinks { get; set; }
 
-
         [Display(Name = "API", Order = 100, GroupName = Global.GroupNames.Feeds)]
         public virtual IList<string> NewsFeeds { get; set; }
 

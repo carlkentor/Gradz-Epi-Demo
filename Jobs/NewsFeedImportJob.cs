@@ -8,7 +8,9 @@ using Grademoepi.Models.Feeds;
 using Grademoepi.Models.Pages;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 
 namespace Grademoepi.Jobs
@@ -17,12 +19,11 @@ namespace Grademoepi.Jobs
     public class NewsFeedImportJob : ScheduledJobBase
     {
         private bool _stopSignaled;
-        private IContentLoader contentLoader;
+        private readonly IContentLoader contentLoader;
         private readonly IContentRepository contentRepository;
         const string apikey = "d84782292488411b87e52b5e360536dd";
         private readonly int createdCount = 0;
 
-        private readonly HttpClient httpClient = new HttpClient();
         public NewsFeedImportJob()
         {
             IsStoppable = true;
@@ -45,13 +46,17 @@ namespace Grademoepi.Jobs
         /// <returns>A status message to be stored in the database log and visible from admin mode</returns>
         public override string Execute()
         {
+            var httpClient = new HttpClient() { Timeout = new TimeSpan(1, 1, 1) };
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             var startPage = contentLoader.Get<StartPage>(ContentReference.StartPage);
-            var categoryRepository = ServiceLocator.Current.GetInstance<CategoryRepository>();
             var rootPage = contentLoader.GetChildren<ContainerPage>(ContentReference.StartPage).FirstOrDefault();
-            //Call OnStatusChanged to periodically notify progress of job for manually started jobs
-            OnStatusChanged(String.Format("Starting execution of {0}", this.GetType()));
+
+            var categoryRepository = ServiceLocator.Current.GetInstance<CategoryRepository>();
+            ////Call OnStatusChanged to periodically notify progress of job for manually started jobs
+            //OnStatusChanged(String.Format("Starting execution of {0}", this.GetType()));
 
             var feedCollection = startPage.NewsFeeds;
+
             if (feedCollection == null || !feedCollection.Any())
             {
                 return $"Zero news got imported from zero feeds";
@@ -59,9 +64,10 @@ namespace Grademoepi.Jobs
 
             foreach (var feed in feedCollection)
             {
-                var response = httpClient.GetStringAsync($"{feed}&apiKey={apikey}");
-                var resultFeed = JsonConvert.DeserializeObject<Feed>(response.Result);
-                var existingPages = contentLoader.GetChildren<FeedPage>(ContentReference.StartPage);
+                //var response = httpClient.GetStringAsync($"{feed}&apiKey={apikey}").Result;
+                var json = LocalJson();
+                var resultFeed = JsonConvert.DeserializeObject<Feed>(json);
+                var existingPages = contentLoader.GetChildren<FeedPage>(rootPage.ContentLink);
                 foreach (var article in resultFeed.Articles)
                 {
                     var pagename = $"{article.Source.Name}_{article.Source.Id}_{article.Title}_{article.PublishedAt}";
@@ -101,7 +107,19 @@ namespace Grademoepi.Jobs
                 return "Stop of job was called";
             }
 
-            return $"Imported {createdCount} articles from {feedCollection.Count} feeds";
+            return $"Imported Completed";
+        }
+        public string LocalJson()
+        {
+
+            var feed = new Feed()
+            {
+                Status = "ok",
+                TotalResults = 1,
+                Articles = new System.Collections.Generic.List<FeedItem>() { new FeedItem { Author = "Author", Content = "Content", Description = "Description", Url = "https://google.se", Source = new FeedSource {Id = "Bild", Name = "Bild" },
+                EpiCategories = new List<string>{"SomeCat" }, PublishedAt = DateTime.Now, Title  ="Title", UrlToImage = "https://google.se"} }
+            };
+            return JsonConvert.SerializeObject(feed);
         }
     }
 }

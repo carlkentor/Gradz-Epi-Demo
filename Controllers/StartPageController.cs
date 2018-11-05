@@ -19,12 +19,10 @@ namespace Grademoepi.Controllers
         }
         public ActionResult Index(StartPage currentPage)
         {
-            var root = currentPage.NewsRoot;
-            var page = contentLoader.GetChildren<FeedPage>(currentPage.NewsRoot);
-            var page2 = contentLoader.GetChildren<FeedPage>(currentPage.NewsRoot, CultureInfo.CurrentCulture);
+            var newsroot = contentLoader.Get<ContainerPage>(currentPage.NewsRoot, CultureInfo.GetCultureInfo("en"));
             var model = new StartPageViewModel(currentPage)
             {
-                FeedItems = contentLoader.GetChildren<FeedPage>(currentPage.NewsRoot).Select(x => new Models.Feeds.FeedItem()
+                FeedItems = contentLoader.GetChildren<FeedPage>(newsroot.ContentLink, CultureInfo.GetCultureInfo("en")).Select(x => new Models.Feeds.FeedItem()
                 {
                     EpiCategories = x.Category != null ? x.Category.Select(c => categoryRepository.Get(c).Name).ToList() : new List<string>(),
                     Author = x.Author,
