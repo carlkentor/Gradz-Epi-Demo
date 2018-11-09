@@ -1,5 +1,5 @@
 @using Grademoepi
-@model PageViewModel<Grademoepi.Models.Pages.StartPage>
+@model StartPageViewModel
 <div class="row">
     <div class="col-md-12">
         @Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row equal-height", tag = Global.ContentAreaTags.FullWidth })
@@ -8,3 +8,18 @@
 <div class="row">
     @Html.PropertyFor(x => x.CurrentPage.PortalLinks, new { tag = Global.ContentAreaTags.PortalReference })
 </div>
+<hr>
+<h4>Artiklar (@Model.FeedItems.Count)</h4>
+@if (Model.FeedItems.Any())
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="signalr-feed-collection">
+                @foreach (var item in Model.FeedItems)
+                {
+                    @Html.Partial("_FeedPage", item)
+                }
+            </div>
+        </div>
+    </div>
+}

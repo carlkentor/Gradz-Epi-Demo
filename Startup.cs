@@ -1,11 +1,11 @@
-using System;
-using System.Web;
 using EPiServer.Cms.UI.AspNetIdentity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using System;
+using System.Web;
 
 [assembly: OwinStartup(typeof(Grademoepi.Startup))]
 
@@ -16,7 +16,6 @@ namespace Grademoepi
 
         public void Configuration(IAppBuilder app)
         {
-
             // Add CMS integration for ASP.NET Identity
             app.AddCmsAspNetIdentity<ApplicationUser>();
 
@@ -43,6 +42,9 @@ namespace Grademoepi
                         regenerateIdentity: (manager, user) => manager.GenerateUserIdentityAsync(user))
                 }
             });
+
+            app.MapSignalR();
+
         }
     }
 }

@@ -39,13 +39,53 @@ input[type=search] {
 
 img {
     -webkit-transition: opacity 2s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -ms-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
+
     img:hover {
         transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
         filter: alpha(opacity=100);
         transition: opacity 1s ease-in-out;
+    }
+
+
+.feed-item {
+    border-radius: 5px;
+    border: #A0A0A0;
+    border-bottom: 2px solid #A0A0A0;
+    background: #F0F0F0;
+    padding: 20px;
+    margin-bottom: 15px;
+    width: 45%;
+    min-width: 400px;
+    word-wrap: break-word;
+    -webkit-transition: opacity 2s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+    .feed-item:hover {
+    }
+
+    .feed-item img {
+        border-radius: 10px;
+    }
+
+    .feed-item .cat {
+        background: #000000;
+        padding: 5px;
+        border-radius: 10px;
+        color: #ccc;
+        margin-bottom:20px;
+        opacity:0.8;
+    }
+
+    .feed-item a {
+        text-decoration: none;
+        color: #000;
     }
